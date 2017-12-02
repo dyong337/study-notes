@@ -81,6 +81,10 @@ div.onclick = function(e){
 
 	toStrign():null,undefined不能使用
 	
+	typeof(null) : "object"
+	+undefined 	:	NaN
+	!!" " =true;
+	
 ##函数(应用数据类型 )
 高内聚， 弱耦合(重复)；
 弱数据类型语言、解释性语言不输出地址
@@ -128,7 +132,7 @@ arguments --[11,2,3] 实参列表
 		console.log(b);//报错b is not defined 
 		
 	预编译前奏
-	1. imply global 按时全局变量：即任何变量，如果变量未做声明就赋值，此变量就为全局对象所有。window.a = 10;
+	1. imply global 暗示全局变量：即任何变量，如果变量未做声明就赋值，此变量就为全局对象所有。window.a = 10;
 	2. 一切声明的全局变量，全是window的属性;window就是全局的域-
 	window{
 		a : 123;
@@ -170,16 +174,31 @@ arguments --[11,2,3] 实参列表
 			d : function d(){}
 		}
 		
-		最终输出:
+		最终输出: 
 		function a(){}
 		123
 		123
 		function b(){};
+		
+	函数预编译：
+	全局预编译： 
+		1. 生成了一个GO 对象 Global Object
+		2. GO === window   
+		
+	if里面不能声明function
+	
+
 3. 解释执行
 
 ##作用域
-
+函数对象
 
 ##闭包
 
 ##
+
+
+##题
+1. (window.foo || window.foo = "bar")//Uncaught ReferenceError: Invalid left-hand side in assignment
+2. (window.foo || (window.foo = "bar"));window.foo的值：
+	解题：先看里面的括号，window.foo = "bar";最后window.foo的值为"bar" 
