@@ -210,7 +210,7 @@ arguments --[11,2,3] 实参列表
 ##
 
 
-##题
+##题目
 1. (window.foo || window.foo = "bar")//Uncaught ReferenceError: Invalid left-hand side in assignment
 2. (window.foo || (window.foo = "bar"));window.foo的值：
 	解题：先看里面的括号，window.foo = "bar";最后window.foo的值为"bar" 
