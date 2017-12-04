@@ -214,3 +214,16 @@ arguments --[11,2,3] 实参列表
 1. (window.foo || window.foo = "bar")//Uncaught ReferenceError: Invalid left-hand side in assignment
 2. (window.foo || (window.foo = "bar"));window.foo的值：
 	解题：先看里面的括号，window.foo = "bar";最后window.foo的值为"bar" 
+=======
+
+##
+
+
+
+
+##原型、原型链
+1. 方法中的this指向是，谁调用了这个方法，this就指向谁
+2. 可正常计算的范围，小数点前16 小数点后16
+3. call/apply
+	1. 作用，改变this指向。（借用别的函数实现自己的功能）
+	2. 区别，后面传的参数形式不同(call 需要把实参按形参的个数传进入 apply 需要传一个arguments )。 
