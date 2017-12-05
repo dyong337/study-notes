@@ -207,18 +207,6 @@ arguments --[11,2,3] 实参列表
 (function (){}());w3c建业使用第一种
 (function (){})();
 只有表达式才能被执行符号执行
-##
-
-
-##题目
-1. (window.foo || window.foo = "bar")//Uncaught ReferenceError: Invalid left-hand side in assignment
-2. (window.foo || (window.foo = "bar"));window.foo的值：
-	解题：先看里面的括号，window.foo = "bar";最后window.foo的值为"bar" 
-=======
-
-##
-
-
 
 
 ##原型、原型链
@@ -228,6 +216,116 @@ arguments --[11,2,3] 实参列表
 	1. 作用，改变this指向。（借用别的函数实现自己的功能）
 	2. 区别，后面传的参数形式不同(call 需要把实参按形参的个数传进入 apply 需要传一个arguments )。 
 
+##命名空间
+1. org 命名空间（老办法）
+	var org = {
+		department1 : {
+			jicheng : {
+				name : "abc",
+				age :123
+			},
+			xuming :{
+			
+			}
+		},
+		department2 :{
+			zhangsan : ｛
+		
+			｝ 
+		}
+	}
+
+2. 闭包
+
+3. 访问属性
+	var obj = {
+		name : "abc"
+	}
+	1. obj.name ---->obj["name"]
+	2. obj["name"];
+
+##对象的枚举
+1. for in 循环，遍历对象 
+2. obj.hasOwnProperty(prop);//返回boolean值
+3. in,'height' in obj;//是含有该属性
+4. A instanceof B:1. A对象 是不是 B构造函数构造出来的；看A对象的原型链上 有没有 B的原型； 
 
 ##库
 YUI3
+
+
+
+##题目
+1. (window.foo || window.foo = "bar")//Uncaught ReferenceError: Invalid left-hand side in assignment
+2. (window.foo || (window.foo = "bar"));window.foo的值：
+	解题：先看里面的括号，window.foo = "bar";最后window.foo的值为"bar" 
+3. 区分数组和对象的三种方法：
+	1. constructor
+	2. instanceof
+	3. toString()-->Object.prototype.toString.call([]);
+4. 克隆
+	1. 浅层克隆--引用值也跟着变
+
+	
+
+	2. 深沉克隆--引用值不回跟着变 
+5. 预编译
+6. 立即执行函数 
+	1.
+	function foo(x){
+		console.log(arguments);
+	}{1,2,3,4,5}
+	2.
+	(function foo(x){
+		console.log(arguments);
+		return x;
+	})(1,2,3,4,5);
+	3.		var f =(
+			function f(){
+				return "1";
+				},
+				function g(){
+					return 2;
+				}
+			)();
+			
+			typeof f;
+			//f = 2; 
+	
+	
+7. 实参和形参
+8. 进制：
+9. 哪些值能转变未false
+10. typeof的返回值值：string、number、boolean、undefined、object、function
+	1. 五大基础值：string、number、boolean、undefined、null
+	2. object、function
+11. 逗号操作符
+	1. var num = (1,2);//num = 2;  
+12. false值：-0、0、""、null、undefined、NaN、false
+13. （）转换为表达式
+14. 1. undefined == null;//true
+	2. isNaN("100");//true
+	3. parseInt("1a);//true
+15. arguments
+	arguments.callee指向函数自身的应用；
+	func.caller:指定被调用的环境应用
+16. 	function test(){
+			a = 0;
+			alert(a);
+			alert(this.a);
+			var a ;
+			alert(a);
+		}
+		test();
+		new test();
+17. 	var bar = {a : '002'};
+		function print(){
+			bar.a = 'a';
+			Object.prototype.b = 'b';
+			return function inner(){
+				console.log(bar.a);
+				console.log(bar.b);
+			}
+		}
+		
+		print()();
