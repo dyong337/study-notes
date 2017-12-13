@@ -250,6 +250,29 @@ arguments --[11,2,3] 实参列表
 3. in,'height' in obj;//是含有该属性
 4. A instanceof B:1. A对象 是不是 B构造函数构造出来的；看A对象的原型链上 有没有 B的原型； 
 
+
+##数组
+构造方式：字面量、系统构造方法
+var arr = [];
+var arr = new Array(1,2,3,4,5,6);
+var arr = new Array(10);//长度为10的空数组
+var arr = new Array(10.2);//报错，长度不合法
+数组的常用方法
+1. es3.0 es5.0 es6.0
+(基于es3.0)
+改变原数组
+	1. push:添加数据
+	2. pop:抛出数组最后
+	3. shift:抛出第一位
+	4. unshift:在第一位中添加数据
+	5. reverse:逆转
+	6. splice:从第几位开始，截取多少的长度，在切口处添加新的数据
+	7. sort
+不改变原数组
+
+##对象
+构造对象：字面量、构造函数、自定义构造函数、Object.create();
+
 ##库
 YUI3
 
